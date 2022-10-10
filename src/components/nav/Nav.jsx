@@ -5,20 +5,22 @@ import {BiUser} from 'react-icons/bi'
 import {BiBook} from 'react-icons/bi'
 import {VscSettingsGear} from 'react-icons/vsc'
 import {BiMessageDetail} from 'react-icons/bi'
+import {useState} from 'react'
 
 
 
 
-const nav = () => {
+const Nav = () => {
+  const [activeNav, setActiveNav] = useState('#')
   return (
     <nav>
-      <a href="#"><AiOutlineHome/></a>
-      <a href="#about"><BiUser/></a>
-      <a href="#experience"><BiBook/></a>
-      <a href="#services"><VscSettingsGear/></a>
-      <a href="#contact"><BiMessageDetail/></a>
+      <a href="#home" onClick={() => setActiveNav('#')} className={activeNav === '#' ? 'active' : ''}><AiOutlineHome/></a>
+      <a href="#about" onClick={() => setActiveNav('#about')} className={activeNav === '#about' ? 'active' : ''}><BiUser/></a>
+      <a href="#experience" onClick={() => setActiveNav('#experience')} className={activeNav === '#experience' ? 'active' : ''}><BiBook/></a>
+      <a href="#services" onClick={() => setActiveNav('services')} className={activeNav === '#services' ? 'active' : ''}><VscSettingsGear/></a>
+      <a href="#contact" onClick={() => setActiveNav('#contact')} className={activeNav === '#contact' ? 'active' : ''}><BiMessageDetail/></a>
     </nav>
   )
 }
 
-export default nav
+export default Nav
